@@ -10,7 +10,7 @@ permissions:
   packages: write
 
 jobs:
-  fv.php:
+  fv-php:
     runs-on: ubuntu-latest
     name: build base image for php
     steps:
