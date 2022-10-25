@@ -4,7 +4,7 @@ COPY --from=mlocati/php-extension-installer:1.5.44 /usr/bin/install-php-extensio
 
 RUN set -xe \
  && apk add unzip \
- && install-php-extensions opcache sockets pcntl pdo_pgsql decimal intl zip gd imagick bcmath \
+ && install-php-extensions opcache sockets pcntl pdo_pgsql zip decimal \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
 
