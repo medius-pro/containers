@@ -10,7 +10,7 @@ permissions:
   packages: write
 
 jobs:
-  fv:
+  php-api:
     runs-on: ubuntu-latest
     name: build base image for php
     steps:
@@ -23,6 +23,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v3
         with:
-          context: ./php/fv
+          context: ./php/api
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/php:fv
+          tags: ghcr.io/${{ github.repository_owner }}/php:api
