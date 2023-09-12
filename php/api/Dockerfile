@@ -1,6 +1,6 @@
-FROM php:8.2.8-alpine
+FROM php:8.2.10-fpm-alpine
 
-COPY --from=mlocati/php-extension-installer:2.1.37 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
+COPY --from=mlocati/php-extension-installer:2.1.51 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
 
 RUN set -xe \
  && apk add --no-cache unzip \
@@ -8,6 +8,7 @@ RUN set -xe \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
 
+COPY config/fpm.ini /usr/local/etc/php-fpm.conf
 COPY config/php.ini /usr/local/etc/php/php.ini
 
 WORKDIR /app
