@@ -4,7 +4,7 @@ COPY --from=mlocati/php-extension-installer:2.1.68 /usr/bin/install-php-extensio
 
 RUN set -xe \
  && apk add --no-cache unzip \
- && install-php-extensions opcache sockets pcntl pdo_pgsql decimal zip \
+ && install-php-extensions opcache sockets pcntl pdo_pgsql decimal gd zip \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
 
