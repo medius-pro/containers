@@ -14,7 +14,7 @@
 	order php before file_server
 }
 
-:8080 {
+:80 {
 	handle /health-check {
 		@goingDown vars {http.shutting_down} true
 		respond @goingDown "going down in {http.time_until_shutdown}" 503
@@ -24,7 +24,7 @@
 	respond 418
 }
 
-:8443 {
+:443 {
 	root * /app/public
 
 	skip_log *
