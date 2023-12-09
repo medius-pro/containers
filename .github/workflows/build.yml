@@ -13,7 +13,7 @@ jobs:
   php-api:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    name: build base image for php
+    name: build base image for API
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
