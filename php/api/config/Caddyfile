@@ -1,8 +1,8 @@
 {
-    admin off
-    auto_https off
-    ocsp_stapling off
-    persist_config off
+	admin off
+	auto_https off
+	ocsp_stapling off
+	persist_config off
 
 	frankenphp {
 		{$FRANKENPHP_CONFIG}
@@ -15,25 +15,25 @@
 }
 
 :8080 {
-    handle /health-check {
-        @goingDown vars {http.shutting_down} true
-        respond @goingDown "going down in {http.time_until_shutdown}" 503
-        respond 200
-    }
+	handle /health-check {
+		@goingDown vars {http.shutting_down} true
+		respond @goingDown "going down in {http.time_until_shutdown}" 503
+		respond 200
+	}
 
-    respond 418
+	respond 418
 }
 
 :8443 {
-    root * /app/public
+	root * /app/public
 
-    skip_log *
+	skip_log *
 
-    encode zstd gzip
+	encode zstd gzip
 
-    tls /etc/caddy/cert/tls.crt /etc/caddy/cert/tls.key
+	tls /etc/caddy/cert/tls.crt /etc/caddy/cert/tls.key
 
-    php_server {
-        resolve_root_symlink
-    }
+	php_server {
+		resolve_root_symlink
+	}
 }
