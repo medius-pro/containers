@@ -5,7 +5,10 @@ RUN set -xe && install-php-extensions opcache sockets pcntl pdo_pgsql decimal gd
 COPY config/php.ini /usr/local/etc/php/php.ini
 COPY config/Caddyfile /etc/caddy/Caddyfile
 
-HEALTHCHECK NONE
+HEALTHCHECK CMD curl -f http://127.0.0.1:8080/health-check || exit 1
+
+EXPOSE 8080/tcp
+EXPOSE 8443
 
 ENTRYPOINT ["/usr/local/bin/frankenphp"]
 CMD ["run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
