@@ -4,6 +4,16 @@
 	ocsp_stapling off
 	persist_config off
 
+	servers :443 {
+		name https
+		protocols h1 h2 h3
+	}
+
+	servers :80 {
+		name http
+		protocols h1
+	}
+
 	frankenphp {
 		{$FRANKENPHP_CONFIG}
 	}
