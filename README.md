@@ -1,1 +1,1 @@
-- PHP: [￼`ghcr.io/medius-pro/php:api`￼](https://ghcr.io/medius-pro/php)
+- PHP: [`ghcr.io/medius-pro/php`](https://ghcr.io/medius-pro/php)
