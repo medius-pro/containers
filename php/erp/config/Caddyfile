@@ -39,7 +39,7 @@
 
 	skip_log *
 
-	encode zstd gzip
+	encode zstd br gzip
 
 	tls /etc/caddy/cert/tls.crt /etc/caddy/cert/tls.key
 
