@@ -25,6 +25,8 @@
 }
 
 :80 {
+	skip_log *
+
 	handle /health-check {
 		@goingDown vars {http.shutting_down} true
 		respond @goingDown "going down in {http.time_until_shutdown}" 503
