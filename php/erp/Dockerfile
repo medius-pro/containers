@@ -1,4 +1,4 @@
-FROM dunglas/frankenphp:1.1.2-php8.3.4-alpine
+FROM dunglas/frankenphp:1.1.2-php8.3.6-alpine
 
 COPY --from=postgres:15-alpine /usr/local/bin/pg_dump /usr/local/bin/pg_dump
 
