@@ -12,5 +12,3 @@ HEALTHCHECK NONE
 
 ENTRYPOINT ["/usr/local/bin/frankenphp"]
 CMD ["run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
-
-EXPOSE 8080
