@@ -1,7 +1,7 @@
 FROM dunglas/frankenphp:1.1.5-php8.3.7
 
 RUN set -xe \
- && install-php-extensions opcache pdo_pgsql pdo_sqlite gd decimal bcmath intl zip \
+ && install-php-extensions opcache pdo_pgsql gd decimal bcmath intl zip \
  && apt-get update && apt-get install postgresql-client-15 -y && rm -rf /var/lib/apt/lists/* \
  && setcap -r /usr/local/bin/frankenphp
 
