@@ -1,9 +1,8 @@
-FROM dunglas/frankenphp:1.1.5-php8.3.7-alpine
-
-COPY --from=postgres:15-alpine /usr/local/bin/pg_dump /usr/local/bin/pg_dump
+FROM dunglas/frankenphp:1.1.5-php8.3.7
 
 RUN set -xe \
- && install-php-extensions opcache sockets pcntl pdo_pgsql gd decimal bcmath intl zip \
+ && install-php-extensions opcache pdo_pgsql pdo_sqlite gd decimal bcmath intl zip \
+ && apt-get update && apt-get install postgresql-client-15 -y && rm -rf /var/lib/apt/lists/* \
  && setcap -r /usr/local/bin/frankenphp
 
 COPY config/php.ini /usr/local/etc/php/php.ini
