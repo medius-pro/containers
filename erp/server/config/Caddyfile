@@ -10,11 +10,6 @@
 	}
 
 	frankenphp
-
-	order mercure after encode
-	order vulcain after reverse_proxy
-	order php_server before file_server
-	order php before file_server
 }
 
 :8443 {
@@ -26,5 +21,7 @@
 
 	tls /config/cert/tls.crt /config/cert/tls.key
 
-	php_server
+	php_server {
+		resolve_root_symlink false
+	}
 }
