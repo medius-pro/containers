@@ -1,8 +1,7 @@
-FROM dunglas/frankenphp:1.2.5-php8.3.10
+FROM dunglas/frankenphp:1.4.4-php8.4.4
 
 RUN set -xe \
- && install-php-extensions opcache pdo_pgsql gd decimal bcmath intl zip \
- && apt-get update && apt-get install postgresql-client-15 -y && rm -rf /var/lib/apt/lists/* \
+ && install-php-extensions install-php-extensions opcache pdo_pgsql gd decimal bcmath intl zip \
  && setcap -r /usr/local/bin/frankenphp
 
 COPY config/php.ini /usr/local/etc/php/php.ini
